@@ -1,6 +1,47 @@
 @extends('welcome')
 @section('content')
-<div class="pd-20 card-box mb-30">
+<div class="card-box mb-30">
+				<h2 class="h4 pd-20 text-blue">Best Selling Products</h2>
+				<table class="data-table table nowrap">
+					<thead>
+						<tr>
+							<th class="table-plus datatable-nosort">Mã chức vụ</th>
+							<th>Tên chức vụ</th>
+							<th>Lương</th>
+							<th>Mô tả</th>
+							<th class="datatable-nosort">Chức năng</th>
+						</tr>
+					</thead>
+					<tbody>
+					@foreach($room as $key => $value)
+						<tr>
+							<td class="table-plus">
+								<img src="https://picsum.photos/200" width="70" height="70" alt="">
+							</td>
+							<td>
+								<h5 class="font-16">{{$value->ma_cv}}</h5>
+							</td>
+							<td>{{$value->ten_cv}}</td>
+							<td>{{$value->luong}}</td>
+							<td>{{$value->mo_ta}}</td>
+							<td>
+								<div class="dropdown">
+									<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+										<i class="dw dw-more"></i>
+									</a>
+									<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+										<a class="dropdown-item" href="#"><i class="dw dw-eye"></i> View</a>
+										<a class="dropdown-item" href="{{URL::to('/sua-chuc-vu/'.$value->id_chucvu)}}"><i class="dw dw-edit2"></i> Edit</a>
+										<a class="dropdown-item" href="{{URL::to('/xoa-chuc-vu/'.$value->id_chucvu)}}" onclick="return confirm('Bạn muốn xóa thông tin này???')" ui-toggle-class=""><i class="dw dw-delete-3"></i> Delete</a>
+									</div>
+								</div>
+							</td>
+						</tr>
+						@endforeach
+					</tbody>
+				</table>
+			</div>
+<!-- <div class="pd-20 card-box mb-30">
 					<div class="clearfix mb-20">
 						<div class="pull-left">
 							<h4 class="text-blue h4">Danh sách chức vụ</h4>
@@ -57,5 +98,5 @@
 							</code></pre>
 						</div>
 					</div>
-				</div>
+				</div> -->
 @endsection

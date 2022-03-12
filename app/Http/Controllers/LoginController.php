@@ -15,4 +15,14 @@ class LoginController extends Controller
     {
         return view('admin.login.register');
     }
+
+    public function forgotpassword()
+    {
+        return view('admin.login.forgotpassword');
+    }
+
+    public function changepassword()
+    {
+        return view('admin.login.changepassword');
+    }
 }

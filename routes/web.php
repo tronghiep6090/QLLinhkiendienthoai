@@ -54,3 +54,5 @@ Route::get('/themthuonghieu','ThuongHieuController@themthuonghieu');
 Route::get('/home','HomeController@home');
 Route::get('/login','LoginController@login');
 Route::get('/register','LoginController@register');
+Route::get('/forgotpassword','LoginController@forgotpassword');
+Route::get('/changepassword','LoginController@changepassword');
