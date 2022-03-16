@@ -366,8 +366,8 @@
 							<span class="micon dw "><i class="icon-copy fa fa-tags" aria-hidden="true"></i></span><span class="mtext">Brand</span>
 						</a>
 						<ul class="submenu">
-							<li><a href="{{URL::to('/themthuonghieu')}}">Add Brand</a></li>
-							<li><a href="{{URL::to('/danhsachthuonghieu')}}">Brand List</a></li>
+							<li><a href="{{URL::to('/them-thuonghieu')}}">Add Brand</a></li>
+							<li><a href="{{URL::to('/DS-thuonghieu')}}">Brand List</a></li>
 						</ul>
 					</li>
 					<li class="dropdown">
@@ -377,6 +377,7 @@
 						<ul class="submenu">
 							<li><a href="{{URL::to('/them-phong-ban')}}">Thêm phòng ban</a></li>
 							<li><a href="{{URL::to('/DS-phong-ban')}}">Danh sách phòng ban</a></li>
+							<li><a href="{{URL::to('/DS-hanghoa')}}">Product list</a></li>
 						</ul>
 					</li>
 					<li class="dropdown">
@@ -386,6 +387,7 @@
 						<ul class="submenu">
 							<li><a href="{{URL::to('/them-chuc-vu')}}">Thêm chức vụ</a></li>
 							<li><a href="{{URL::to('/DS-chuc-vu')}}">Danh sách chức vụ</a></li>
+							<li><a href="{{URL::to('/DS-loaihanghoa')}}">Product type list</a></li>
 						</ul>
 					</li>
 					<li class="dropdown">
@@ -394,6 +396,7 @@
 						</a>
 						<ul class="submenu">
 							<li><a href="{{URL::to('/DS-leader')}}">Danh sách Leader</a></li>
+							<li><a href="{{URL::to('/DS-nhacungcap')}}">Manufacture list</a></li>
 						</ul>
 					</li>
 					<li class="dropdown">
@@ -403,6 +406,7 @@
 						<ul class="submenu">
 							<li><a href="{{URL::to('/them-chuc-vu')}}">Thêm chức vụ</a></li>
 							<li><a href="{{URL::to('/DS-chuc-vu')}}">Danh sách chức vụ</a></li>
+							<li><a href="{{URL::to('/danhsach-khachhang')}}">Customer List </a></li>
 						</ul>
 					</li>
 					<li class="dropdown">

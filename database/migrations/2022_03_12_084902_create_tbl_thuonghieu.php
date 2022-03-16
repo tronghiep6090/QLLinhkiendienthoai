@@ -13,7 +13,7 @@ class CreateTblThuonghieu extends Migration
      */
     public function up()
     {
-        Schema::create('thuonghieu', function (Blueprint $table) {
+        Schema::create('tbl_thuonghieu', function (Blueprint $table) {
             $table-> increments('id_TH');
             $table-> string('ten_TH');
             $table-> string('mo_ta');

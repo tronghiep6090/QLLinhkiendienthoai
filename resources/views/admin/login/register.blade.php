@@ -125,7 +125,7 @@
 									</div>
 								</section>
 								<!-- Step 3 -->
-								<h5>Payment Method & Info</h5>
+								<!-- <h5>Payment Method & Info</h5>
 								<section>
 									<div class="form-wrap max-width-600 mx-auto">
 										<div class="form-group row">
@@ -190,9 +190,9 @@
 											</div>
 										</div>
 									</div>
-								</section>
+								</section> -->
 								<!-- Step 4 -->
-								<h5>Overview Information</h5>
+								<!-- <h5>Overview Information</h5>
 								<section>
 									<div class="form-wrap max-width-600 mx-auto">
 										<ul class="register-info">
@@ -232,7 +232,7 @@
 											<label class="custom-control-label" for="customCheck1">I have read and agreed to the terms of services and privacy policy</label>
 										</div>
 									</div>
-								</section>
+								</section> -->
 							</form>
 						</div>
 					</div>

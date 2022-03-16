@@ -58,7 +58,7 @@
 						<div class="login-title">
 							<h2 class="text-center text-primary">Login To DeskApp</h2>
 						</div>
-						<form>
+						
 							<div class="select-role">
 								<div class="btn-group btn-group-toggle" data-toggle="buttons">
 									<label class="btn active">
@@ -75,50 +75,72 @@
 									</label>
 								</div>
 							</div>
-							<div class="input-group custom">
-								<input type="text" class="form-control form-control-lg" placeholder="Username">
-								<div class="input-group-append custom">
-									<span class="input-group-text"><i class="icon-copy dw dw-user1"></i></span>
-								</div>
-							</div>
-							<div class="input-group custom">
-								<input type="password" class="form-control form-control-lg" placeholder="**********">
-								<div class="input-group-append custom">
-									<span class="input-group-text"><i class="dw dw-padlock1"></i></span>
-								</div>
-							</div>
-							<div class="row pb-30">
-								<div class="col-6">
-									<div class="custom-control custom-checkbox">
-										<input type="checkbox" class="custom-control-input" id="customCheck1">
-										<label class="custom-control-label" for="customCheck1">Remember</label>
+							<form action="{{URL::to('/loginn')}}" method="post" enctype="multipart/form-data">
+								<div class="input-group custom">
+									<input type="text" class="form-control form-control-lg" placeholder="Username" name="username">
+									<div class="input-group-append custom">
+										<span class="input-group-text"><i class="icon-copy dw dw-user1"></i></span>
 									</div>
 								</div>
-								<div class="col-6">
-									<div class="forgot-password"><a href="{{URL::to('/forgotpassword')}}">Forgot Password</a></div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-sm-12">
-									<div class="input-group mb-0">
-										<!--
-											use code for form submit
-											<input class="btn btn-primary btn-lg btn-block" type="submit" value="Sign In">
-										-->
-										<a class="btn btn-primary btn-lg btn-block" href="index.html">Sign In</a>
-									</div>
-									<div class="font-16 weight-600 pt-10 pb-10 text-center" data-color="#707373">OR</div>
-									<div class="input-group mb-0">
-										<a class="btn btn-outline-primary btn-lg btn-block" href="{{URL::to('/register')}}">Register To Create Account</a>
+								<div class="input-group custom">
+									<input type="password" class="form-control form-control-lg" placeholder="**********" name="password">
+									<div class="input-group-append custom">
+										<span class="input-group-text"><i class="dw dw-padlock1"></i></span>
 									</div>
 								</div>
-							</div>
-						</form>
+								<div class="row pb-30">
+									<div class="col-6">
+										<div class="custom-control custom-checkbox">
+											<input type="checkbox" class="custom-control-input" id="customCheck1">
+											<label class="custom-control-label" for="customCheck1">Remember</label>
+										</div>
+									</div>
+									<div class="col-6">
+										<div class="forgot-password"><a href="{{URL::to('/forgotpassword')}}">Forgot Password</a></div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="input-group mb-0">
+											<!--
+												use code for form submit
+												<input class="btn btn-primary btn-lg btn-block" type="submit" value="Sign In">
+											-->
+											
+											<button class="btn btn-primary btn-lg btn-block" type="submit">Sign in</button>
+												
+											</input>
+										</div>
+										<div class="font-16 weight-600 pt-10 pb-10 text-center" data-color="#707373">OR</div>
+										<div class="input-group mb-0">
+											<a class="btn btn-outline-primary btn-lg btn-block" href="{{URL::to('/register')}}">Register To Create Account</a>
+										</div>
+									</div>		
+								</div>
+							</form>
 					</div>
 				</div>
 			</div>
 		</div>
+		<form class="sign-up-form form" action="{{URL::to('/loginn')}}" enctype="multipart/form-data" method="post">
+			<label class="form-label-wrapper">
+				{{csrf_field()}} 
+				<p class="form-label">Email</p>
+				<input class="form-input" name="username"  id="usrname"  type="text" placeholder="Enter your email" required>
+			</label>
+			<label class="form-label-wrapper">
+				<p class="form-label">Password</p>
+				<input class="form-input" name="password" id="psw" type="password" placeholder="Enter your password" >
+			</label>
+			<a class="link-info forget-link" href="##">Forgot your password?</a>
+			<label class="form-checkbox-wrapper">
+				<input class="form-checkbox" type="checkbox" required>
+				<span class="form-checkbox-label">Remember me next time</span>
+			</label>
+			<button class="form-btn primary-default-btn transparent-btn">Sign in</button>
+		</form>
 	</div>
+
 	<!-- js -->
 	<script src="{{asset('public/frontend/vendors/scripts/core.js')}}"></script>
 	<script src="{{asset('public/frontend/vendors/scripts/script.min.js')}}"></script>

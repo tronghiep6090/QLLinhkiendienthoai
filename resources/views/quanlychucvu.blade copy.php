@@ -1,15 +1,14 @@
 @extends('welcome')
 @section('content')
 <div class="card-box mb-30">
-				<h2 class="h4 pd-20 text-blue">Danh sách khách hàng</h2>
+				<h2 class="h4 pd-20 text-blue">Best Selling Products</h2>
 				<table class="data-table table nowrap">
 					<thead>
 						<tr>
-							<th class="table-plus datatable-nosort">Mã khách hàng</th>
-							<th>Tên khách hàng</th>
-							<th>Email</th>
-							<th>Số điện thoại</th>
-							<th>Địa chỉ</th>
+							<th class="table-plus datatable-nosort">ID thương hiệu</th>
+							<th>Tên thương hiệu</th>
+							<th>Mô tả</th>
+							<th class="datatable-nosort">Chức năng</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -19,12 +18,10 @@
 								<img src="https://picsum.photos/200" width="70" height="70" alt="">
 							</td>
 							<td>
-								<h5 class="font-16">{{$value->id_KH}}</h5>
+								<h5 class="font-16">{{$value->id_TH}}</h5>
 							</td>
-							<td>{{$value->ten_KH}}</td>
-							<td>{{$value->e_mail}}</td>
-							<td>{{$value->dien_thoai}}</td>
-							<td>{{$value->dia_chi}}</td>
+							<td>{{$value->ten_TH}}</td>
+							<td>{{$value->mo_ta}}</td>
 							<td>
 								<div class="dropdown">
 									<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
@@ -32,8 +29,8 @@
 									</a>
 									<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
 										<a class="dropdown-item" href="#"><i class="dw dw-eye"></i> View</a>
-										<a class="dropdown-item" href="{{URL::to('/sua-chuc-vu/'.$value->id_chucvu)}}"><i class="dw dw-edit2"></i> Edit</a>
-										<a class="dropdown-item" href="{{URL::to('/xoa-chuc-vu/'.$value->id_chucvu)}}" onclick="return confirm('Bạn muốn xóa thông tin này???')" ui-toggle-class=""><i class="dw dw-delete-3"></i> Delete</a>
+										<a class="dropdown-item" href="{{URL::to('/sua-chuc-vu/'.$value->id_TH)}}"><i class="dw dw-edit2"></i> Edit</a>
+										<a class="dropdown-item" href="{{URL::to('/xoa-chuc-vu/'.$value->id_TH)}}" onclick="return confirm('Bạn muốn xóa thông tin này???')" ui-toggle-class=""><i class="dw dw-delete-3"></i> Delete</a>
 									</div>
 								</div>
 							</td>
