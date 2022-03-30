@@ -75,15 +75,18 @@
 									</label>
 								</div>
 							</div>
-							<form action="{{URL::to('/loginn')}}" method="post" enctype="multipart/form-data">
+							<form class="sign-up-form form"  action="{{URL::to('/loginn')}}" enctype="multipart/form-data" method="post">
+								{{csrf_field()}} 	
 								<div class="input-group custom">
-									<input type="text" class="form-control form-control-lg" placeholder="Username" name="username">
+									<!-- <input type="text" class="form-control form-control-lg" placeholder="Username" name="username"> -->
+									<input class="form-control form-control-lg" name="username"  id="usrname"  type="text" placeholder="Enter your email" required>
 									<div class="input-group-append custom">
 										<span class="input-group-text"><i class="icon-copy dw dw-user1"></i></span>
 									</div>
 								</div>
 								<div class="input-group custom">
-									<input type="password" class="form-control form-control-lg" placeholder="**********" name="password">
+									<!-- <input type="password" class="form-control form-control-lg" placeholder="**********" name="password"> -->
+									<input class="form-control form-control-lg" name="password" id="psw" type="password" placeholder="Enter your password" >
 									<div class="input-group-append custom">
 										<span class="input-group-text"><i class="dw dw-padlock1"></i></span>
 									</div>
@@ -122,23 +125,7 @@
 				</div>
 			</div>
 		</div>
-		<form class="sign-up-form form" action="{{URL::to('/loginn')}}" enctype="multipart/form-data" method="post">
-			<label class="form-label-wrapper">
-				{{csrf_field()}} 
-				<p class="form-label">Email</p>
-				<input class="form-input" name="username"  id="usrname"  type="text" placeholder="Enter your email" required>
-			</label>
-			<label class="form-label-wrapper">
-				<p class="form-label">Password</p>
-				<input class="form-input" name="password" id="psw" type="password" placeholder="Enter your password" >
-			</label>
-			<a class="link-info forget-link" href="##">Forgot your password?</a>
-			<label class="form-checkbox-wrapper">
-				<input class="form-checkbox" type="checkbox" required>
-				<span class="form-checkbox-label">Remember me next time</span>
-			</label>
-			<button class="form-btn primary-default-btn transparent-btn">Sign in</button>
-		</form>
+		
 	</div>
 
 	<!-- js -->

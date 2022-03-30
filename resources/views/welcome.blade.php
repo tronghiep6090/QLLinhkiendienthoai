@@ -22,6 +22,12 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('public/frontend/src/plugins/datatables/css/responsive.bootstrap4.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('public/frontend/vendors/styles/style.css')}}">
 
+	<link rel="stylesheet" type="text/css" href="{{asset('public/frontend/src/plugins/switchery/switchery.min.css')}}">
+	<!-- bootstrap-tagsinput css -->
+	<link rel="stylesheet" type="text/css" href="{{asset('public/frontend/src/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css')}}">
+	<!-- bootstrap-touchspin css -->
+	<link rel="stylesheet" type="text/css" href="{{asset('public/frontend/src/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.css')}}">
+
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
 	<script>
@@ -145,10 +151,10 @@
 			<div class="menu-icon dw dw-menu"></div>
 			<div class="search-toggle-icon dw dw-search2" data-toggle="header_search"></div>
 			<div class="header-search">
-				<form>
+				<!-- <form> -->
 					<div class="form-group mb-0">
 						<i class="dw dw-search2 search-icon"></i>
-						<input type="text" class="form-control search-input" placeholder="Search Here">
+						<input onkeyup="myFunction()" id="myInput" type="text" class="form-control search-input" placeholder="Search Here">
 						<div class="dropdown">
 							<a class="dropdown-toggle no-arrow" href="#" role="button" data-toggle="dropdown">
 								<i class="ion-arrow-down-c"></i>
@@ -178,7 +184,7 @@
 							</div>
 						</div>
 					</div>
-				</form>
+				<!-- </form> -->
 			</div>
 		</div>
 		<div class="header-right">
@@ -249,17 +255,34 @@
 				<div class="dropdown">
 					<a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
 						<span class="user-icon">
-							<img src="vendors/images/photo1.jpg" alt="">
+							<img src="{{asset('public/frontend/vendors/images/photo1.jpg')}}" alt="">
 						</span>
-						<span class="user-name">Ross C. Lopez</span>
+						<span class="user-name">Nguyen Trong Hiep</span>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
 						<a class="dropdown-item" href="profile.html"><i class="dw dw-user1"></i> Profile</a>
 						<a class="dropdown-item" href="profile.html"><i class="dw dw-settings2"></i> Setting</a>
-						<a class="dropdown-item" href="faq.html"><i class="dw dw-help"></i> Help</a>
-						<a class="dropdown-item" href="login.html"><i class="dw dw-logout"></i> Log Out</a>
+						<?php
+                            $id = Session::get('id');
+                            if($id!=NULL)
+                            {
+                        ?>
+                    
+							<a class="dropdown-item" href="{{URL::to('/logout')}}"><i class="dw dw-logout"></i> Log Out</a>
+                         <?php
+                            }else{
+                            ?>     
+                           
+							<a class="dropdown-item" href="{{URL::to('/logout')}}"><i class="dw dw-user1"></i>  Log Out</a>
+                            <?php
+                            }
+                            ?>
 						<a class="dropdown-item" href="{{URL::to('/login')}}"><i class="dw dw-logout"></i> Login</a>
 					</div>
+
+
+						
+
 				</div>
 			</div>
 			<div class="github-link">
@@ -347,7 +370,7 @@
 		<div class="brand-logo">
 			<a href="index.html">
 				<img src="{{asset('public/frontend/vendors/images/deskapp-logo.svg')}}" alt="" class="dark-logo">
-				<img src="{{asset('public/frontend/vendors/images/deskapp-logo-white.svg')}}" alt="" class="light-logo">
+				<!-- <img src="{{asset('public/frontend/vendors/images/deskapp-logo-white.svg')}}" alt="" class="light-logo"> -->
 			</a>
 			<div class="close-sidebar" data-toggle="left-sidebar-close">
 				<i class="ion-close-round"></i>
@@ -366,8 +389,9 @@
 							<span class="micon dw "><i class="icon-copy fa fa-tags" aria-hidden="true"></i></span><span class="mtext">Brand</span>
 						</a>
 						<ul class="submenu">
-							<li><a href="{{URL::to('/them-thuonghieu')}}">Add Brand</a></li>
+							<li><a href="{{URL::to('/them-thuonghieu')}}">Brand Add </a></li>
 							<li><a href="{{URL::to('/DS-thuonghieu')}}">Brand List</a></li>
+							<li><a href="{{URL::to('/DS-thuonghieudaxoa')}}">Brand List Deleted</a></li>
 						</ul>
 					</li>
 					<li class="dropdown">
@@ -375,9 +399,9 @@
 							<span class="micon dw"><i class="icon-copy fa fa-puzzle-piece" aria-hidden="true"></i></span><span class="mtext">Product</span>
 						</a>
 						<ul class="submenu">
-							<li><a href="{{URL::to('/them-phong-ban')}}">Thêm phòng ban</a></li>
-							<li><a href="{{URL::to('/DS-phong-ban')}}">Danh sách phòng ban</a></li>
-							<li><a href="{{URL::to('/DS-hanghoa')}}">Product list</a></li>
+							<li><a href="{{URL::to('/them-hanghoa')}}">Product Add</a></li>
+							<li><a href="{{URL::to('/DS-hanghoa')}}">Product List</a></li>
+							<li><a href="{{URL::to('/DS-hanghoadaxoa')}}">Product List Deleted</a></li>
 						</ul>
 					</li>
 					<li class="dropdown">
@@ -385,9 +409,9 @@
 							<span class="micon dw"><i class="icon-copy fa fa-cubes" aria-hidden="true"></i></span><span class="mtext">Product type</span>
 						</a>
 						<ul class="submenu">
-							<li><a href="{{URL::to('/them-chuc-vu')}}">Thêm chức vụ</a></li>
-							<li><a href="{{URL::to('/DS-chuc-vu')}}">Danh sách chức vụ</a></li>
-							<li><a href="{{URL::to('/DS-loaihanghoa')}}">Product type list</a></li>
+							<li><a href="{{URL::to('/them-loaihanghoa')}}">Product Type Add</a></li>
+							<li><a href="{{URL::to('/DS-loaihanghoa')}}">Product Type List</a></li>
+							<li><a href="{{URL::to('/DS-loaihanghoadaxoa')}}">Product Type List Deleted</a></li>
 						</ul>
 					</li>
 					<li class="dropdown">
@@ -395,8 +419,9 @@
 							<span class="micon dw"><i class="icon-copy fa fa-handshake-o" aria-hidden="true"></i></span><span class="mtext">Manufacture</span>
 						</a>
 						<ul class="submenu">
-							<li><a href="{{URL::to('/DS-leader')}}">Danh sách Leader</a></li>
-							<li><a href="{{URL::to('/DS-nhacungcap')}}">Manufacture list</a></li>
+							<li><a href="{{URL::to('/them-nhacungcap')}}">Manufacture Add</a></li>
+							<li><a href="{{URL::to('/DS-nhacungcap')}}">Manufacture List</a></li>
+							<li><a href="{{URL::to('/DS-nhacungcapdaxoa')}}">Manufacture List Deleted</a></li>
 						</ul>
 					</li>
 					<li class="dropdown">
@@ -404,9 +429,9 @@
 							<span class="micon dw"><i class="icon-copy fa fa-group" aria-hidden="true"></i></span><span class="mtext">Customer</span>
 						</a>
 						<ul class="submenu">
-							<li><a href="{{URL::to('/them-chuc-vu')}}">Thêm chức vụ</a></li>
-							<li><a href="{{URL::to('/DS-chuc-vu')}}">Danh sách chức vụ</a></li>
-							<li><a href="{{URL::to('/danhsach-khachhang')}}">Customer List </a></li>
+							<li><a href="{{URL::to('/them-khachhang')}}">Customer Add</a></li>
+							<li><a href="{{URL::to('/DS-khachhang')}}">Customer List </a></li>
+							<li><a href="{{URL::to('/DS-khachhangdaxoa')}}">Customer List Deleted</a></li>
 						</ul>
 					</li>
 					<li class="dropdown">
@@ -416,6 +441,7 @@
 						<ul class="submenu">
 							<li><a href="{{URL::to('/them-chuc-vu')}}">Thêm chức vụ</a></li>
 							<li><a href="{{URL::to('/DS-chuc-vu')}}">Danh sách chức vụ</a></li>
+							<li><a href="{{URL::to('/DS-hoadon')}}">Bill_list</a></li>
 						</ul>
 					</li>
 					<li class="dropdown">
@@ -423,11 +449,23 @@
 							<span class="micon dw"><i class="icon-copy fi-page-edit"></i></span><span class="mtext">Vouchers</span>
 						</a>
 						<ul class="submenu">
-							<li><a href="{{URL::to('/them-chuc-vu')}}">Thêm chức vụ</a></li>
-							<li><a href="{{URL::to('/DS-chuc-vu')}}">Danh sách chức vụ</a></li>
+							<li><a href="{{URL::to('/them-nhanvien')}}">Vouchers Add</a></li>
+							<li><a href="{{URL::to('/DS-nhanvien')}}">Vouchers List</a></li>
+							<li><a href="{{URL::to('/DS-nhanviendaxoa')}}">Vouchers List Deleted</a></li>
+							
 						</ul>
 					</li>
-				
+					<li class="dropdown">
+						<a href="javascript:;" class="dropdown-toggle">
+							<span class="micon dw"><i class="icon-copy dw dw-calendar-11"></i></span><span class="mtext">Staff</span>
+						</a>
+						<ul class="submenu">
+							<li><a href="{{URL::to('/them-phieumuahang')}}">Staff Add</a></li>
+							<li><a href="{{URL::to('/DS-phieumuahang')}}">Staff List</a></li>
+							<li><a href="{{URL::to('/DS-phieumuahangdaxoa')}}">Staff List Deleted</a></li>
+							
+						</ul>
+					</li>
 				</ul>
 			</div>
 		</div>
@@ -440,6 +478,28 @@
         </div>
     </div>
 	<!-- js -->
+	<!-- Start Search -->
+<!-- <script>
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[2];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script> -->
+<!-- End Search -->
 	<script src="{{asset('public/frontend/vendors/scripts/core.js')}}"></script>
 	<script src="{{asset('public/frontend/vendors/scripts/script.min.js')}}"></script>
 	<script src="{{asset('public/frontend/vendors/scripts/process.js')}}"></script>
@@ -450,5 +510,13 @@
 	<script src="{{asset('public/frontend/src/plugins/datatables/js/dataTables.responsive.min.js')}}"></script>
 	<script src="{{asset('public/frontend/src/plugins/datatables/js/responsive.bootstrap4.min.js')}}"></script>
 	<script src="{{asset('public/frontend/vendors/scripts/dashboard.js')}}"></script>
+
+		<!-- switchery js -->
+		<script src="{{asset('public/frontend/src/plugins/switchery/switchery.min.js')}}"></script>
+	<!-- bootstrap-tagsinput js -->
+	<script src="{{asset('public/frontend/src/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js')}}"></script>
+	<!-- bootstrap-touchspin js -->
+	<script src="{{asset('public/frontend/src/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.js')}}"></script>
+	<script src="{{asset('public/frontend/vendors/scripts/advanced-components.js')}}"></script>
 </body>
 </html>

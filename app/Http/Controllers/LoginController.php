@@ -14,7 +14,7 @@ class LoginController extends Controller
 {
     public function login()
     {
-        return view('admin.login.login');
+        return view('login');
     }
 
     public function register()
@@ -33,11 +33,11 @@ class LoginController extends Controller
     }
     public function CheckLogin()
     {
-        $admin_id=Session::get('admin_id');
-        if($admin_id){
-            return Redirect::to('dashboard');
+        $id=Session::get('id');
+        if($id){
+            return Redirect::to('welcome');
         }else{
-            return Redirect::to('admin-login')->send();
+            return Redirect::to('login')->send();
         }
     }
     public function sb_Login(Request $request)
@@ -48,8 +48,8 @@ class LoginController extends Controller
         $result = DB::table('users')->where('name', $uname)->where('password', $upass)->first();
 
         if($result){
-            //Session::put('name',$result->customer_fullname);
-            //Session::put('id',$result->id);
+            Session::put('name',$result->name);
+            Session::put('id',$result->id);
 
             return Redirect::to('/home');
         } else{
@@ -59,9 +59,9 @@ class LoginController extends Controller
     }
     public function logout(){
         $this->CheckLogin();
-        Session::put('admin_name',null);
-        Session::put('admin_id',null);
-        return Redirect::to('/admin-login');
+        Session::put('name',null);
+        Session::put('id',null);
+        return Redirect::to('/login');
     }
 
     public function sb_Register(Request $request)
@@ -81,4 +81,5 @@ class LoginController extends Controller
             return Redirect::to('/login');
         }
     }
+
 }

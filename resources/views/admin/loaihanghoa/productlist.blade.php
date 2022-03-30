@@ -1,13 +1,22 @@
 @extends('welcome')
 @section('content')
 <div class="card-box mb-30">
-    <h2 class="h4 pd-20 text-blue">Danh sách hàng hóa</h2>
-    
+    <div >
+
+        @foreach($name_product_type as $key => $value)
+        <div >
+            <h2 class="h4 pd-20 text-blue">Danh sách hàng hóa thuộc - {{$value->ten_LHH}}
+                <span style="float: right;">Số lượng : {{$count_product_product_type}}</span>
+            </h2>
+            
+        </div>
+        @endforeach
+    </div>
     <table class="data-table table nowrap" id="myTable">
         <thead>
             <tr>
                 <th class="table-plus datatable-nosort">Mã hàng hóa</th>
-                <th>Hình ảnh</th>
+                <!-- <th>Hình ảnh</th> -->
                 <th>Tên hàng hóa</th>
 				<th>Số lượng</th>
                 <th>Mô tả</th>
@@ -17,19 +26,17 @@
             </tr>
         </thead>
         <tbody>
-        @foreach($danhsachhanghoa as $key => $value)
+        @foreach($list_product_product_type as $key => $value)
             <tr>
                 <td>
                     <h5 class="font-16">{{$value->id_HH}}</h5>
                 </td>
-                <td><img src="public/frontend/vendors/images/product/{{$value->hinh_anh}}" height="80" width="80"></td>
+                <!-- <td><img src="public/frontend/vendors/images/product/{{$value->hinh_anh}}" height="80" width="80"></td> -->
                 <td>{{$value->ten_HH}}</td>
 				<td>{{$value->so_luong}}</td>
                 <td>{{$value->mo_ta}}</td>
-				
                 <td>{{$value->ten_LHH}}</td>
 				<td>{{$value->ten_TH}}</td>
-
 				<td>{{$value->gia_HH}}</td>
                 <td>
                     <div class="dropdown">

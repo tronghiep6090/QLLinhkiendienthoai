@@ -13,7 +13,7 @@
 		$("input[name='demo3']").TouchSpin();
 		$("input[name='demo1']").TouchSpin({
 			min: 0,
-			max: 100,
+			max: 1000000,
 			step: 0.1,
 			decimals: 2,
 			boostat: 5,

@@ -11,7 +11,7 @@
                         {{ csrf_field()}}
 						<div class="form-group row">
 							<label class="col-sm-12 col-md-2 col-form-label">Mã chức vụ</label>
-							<div class="col-sm-12 col-md-10">
+							<div class="col-sm-12 col-md-1">
 								<input class="form-control" name="ma_cv" >
 							</div>
 						</div>
