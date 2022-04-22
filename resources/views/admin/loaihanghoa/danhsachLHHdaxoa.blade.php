@@ -1,13 +1,13 @@
 @extends('welcome')
 @section('content')
 <div class="card-box mb-30">
-    <h2 class="h4 pd-20 text-red" style="color:red">Danh sách loại hàng hóa đã xóa</h2>
+    <h2 class="h4 pd-20 text-red" style="color:red">Product Type Deleted</h2>
     <table class="data-table table nowrap" id="myTable">
         <thead>
             <tr>
-                <th class="table-plus datatable-nosort">Mã loại hàng hóa</th>
-                <th>Tên loại hàng hóa</th>
-                <th>Mô tả</th>
+                <th class="table-plus datatable-nosort">Code</th>
+                <th>Product Type name</th>
+                <th>Description</th>
             </tr>
         </thead>
         <tbody>
@@ -24,7 +24,7 @@
                             <i class="dw dw-more"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                            <a class="dropdown-item" href="{{URL::to('/active-product-type/'.$value->id_LHH)}}"><i class="dw dw-eye"></i>Khôi phục</a>
+                            <a class="dropdown-item" href="{{URL::to('/active-product-type/'.$value->id_LHH)}}"><i class="dw dw-eye"></i>Restore</a>
                            
                             <a class="dropdown-item" href="{{URL::to('/delete-product-type/'.$value->id_LHH)}}" onclick="return confirm('Bạn muốn xóa thông tin này???')" ui-toggle-class=""><i class="dw dw-delete-3"></i> Delete</a>
                         </div>

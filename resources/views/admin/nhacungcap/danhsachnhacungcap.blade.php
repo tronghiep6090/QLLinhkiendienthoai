@@ -1,15 +1,15 @@
 @extends('welcome')
 @section('content')
 <div class="card-box mb-30">
-    <h2 class="h4 pd-20 text-blue">Danh sách nhà cung cấp</h2>
+    <h2 class="h4 pd-20 text-blue">Manufacture List</h2>
     <table class="data-table table nowrap" id="myTable">
         <thead>
             <tr>
-                <th class="table-plus datatable-nosort">Mã NCC</th>
-                <th>Tên NCC</th>
+                <th class="table-plus datatable-nosort">Code</th>
+                <th>Manufacture name</th>
 				<th>Email</th>
-                <th>Điện thoại</th>
-				<th>Địa chỉ</th>
+                <th>Phone number</th>
+				<th>Address</th>
             </tr>
         </thead>
         <tbody>

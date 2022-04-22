@@ -16,54 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('/login');
 });
-// //Nhân viên
-// Route::get('/them-nhan-vien','NhansuController@them_nhan_vien');
-// Route::get('/DS-nhan-vien','NhansuController@DS_nhan_vien');
-
-// Route::post('/add-nhan-vien','NhansuController@add_nhan_vien');//thêm
-// Route::get('/xoa-nhan-vien/{xoa}','NhansuController@xoa_nhan_vien');
-// Route::get('/sua-nhan-vien/{id}','NhansuController@sua_nhan_vien');
-// Route::post('/edit-nhan-vien/{load}','NhansuController@edit_nhan_vien');
-
-// //Phòng ban
-// Route::get('/them-phong-ban','NhansuController@them_phong_ban');
-// Route::get('/DS-phong-ban','NhansuController@DS_phong_ban');
-
-// Route::post('/add-phong-ban','NhansuController@add_phong_ban');
-// Route::get('/xoa-phong-ban/{xoa}','NhansuController@xoa_phong_ban');
-// Route::get('/sua-phong-ban/{id}','NhansuController@sua_phong_ban');
-// Route::post('/edit-phong-ban/{load}','NhansuController@edit_phong_ban');
-
-//Chức vụ
-Route::get('/them-chuc-vu','NhansuController@them_chuc_vu');
-Route::get('/DS-chuc-vu','NhansuController@DS_chuc_vu');
-
-Route::post('/add-chuc-vu','NhansuController@add_chuc_vu');
-Route::get('/xoa-chuc-vu/{xoa}','NhansuController@xoa_chuc_vu');
-Route::get('/sua-chuc-vu/{id}','NhansuController@sua_chuc_vu');
-Route::post('/edit-chuc-vu/{load}','NhansuController@edit_chuc_vu');
-
-// //Leader
-// Route::get('/DS-leader','NhansuController@DS_leader');
-
-
-
-//
-
-//Route::post('/them-thuonghieu','ThuongHieuController@them_thuonghieu');
-// Route::post('/add-thuonghieu','ThuongHieuController@add_thuonghieu');
-// Route::post('/edit-thuonghieu','ThuongHieuController@edit_thuonghieu');
-// Route::get('/danhsach-thuonghieu','ThuongHieuController@danhsach_thuonghieu');
-
-Route::get('/them-khachhang','Controller@them_khachhang');
-Route::get('/DS-khachhang','NhansuController@DS_khachhang');
-
-
-
 Route::get('/home','HomeController@home');
 
 Route::get('/login','LoginController@login');
 Route::get('/register','LoginController@register');
+Route::post('/regis','LoginController@regis');
+
 Route::get('/forgotpassword','LoginController@forgotpassword');
 Route::get('/changepassword','LoginController@changepassword');
 
@@ -142,6 +100,8 @@ Route::get('/them-thuonghieu','ThuongHieuController@brand_add');
 Route::post('/save-brand','ThuongHieuController@save_brand');
 Route::get('/edit-brand/{id_TH}','ThuongHieuController@edit_brand');
 Route::post('/update-brand/{id_TH}','ThuongHieuController@update_brand');
+//danh sách sản phẩm trong loại sản phẩm
+Route::get('/list-product-product-typee/{id_TH}','ThuongHieuController@list_product_product_typee');
     //xóa thương hiệu
     Route::get('/unactive-brand/{id_TH}','ThuongHieuController@unactive_brand');//tạo thêm môt tham số { category_product_id } tên gì cũng đc để dễ phân biệt
     //danh sách thương hiệu đã xóa
@@ -151,6 +111,7 @@ Route::post('/update-brand/{id_TH}','ThuongHieuController@update_brand');
     //---------------------------
 //Quản lý hóa đơn
 Route::get('/DS-hoadon','HoaDonController@bill_list');
+Route::get('/them-hoadon','HoaDonController@bill_add');
 
 //Quản lý phiếu mua hàng
 Route::get('/DS-phieumuahang','PhieuMuaHangController@vouchers_list');

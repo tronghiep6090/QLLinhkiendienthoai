@@ -57,38 +57,50 @@
 				<div class="col-md-6 col-lg-5">
 					<div class="register-box bg-white box-shadow border-radius-10">
 						<div class="wizard-content">
-							<form class="tab-wizard2 wizard-circle wizard">
+							<!-- <form class="tab-wizard2 wizard-circle wizard"> -->
 								<h5>Basic Account Credentials</h5>
+							<form action="{{URL::to('/regis')}}" method="post">
+								{{ csrf_field()}}
 								<section>
 									<div class="form-wrap max-width-600 mx-auto">
 										<div class="form-group row">
 											<label class="col-sm-4 col-form-label">Email Address*</label>
 											<div class="col-sm-8">
-												<input type="email" class="form-control">
+												<input type="email" class="form-control" name="email">
 											</div>
 										</div>
+										<!-- <div class="form-group row">
+											<label class="col-sm-4 col-form-label">Phone Number*</label>
+											<div class="col-sm-8">
+												<input type="phone" class="form-control">
+											</div>
+										</div> -->
 										<div class="form-group row">
 											<label class="col-sm-4 col-form-label">Username*</label>
 											<div class="col-sm-8">
-												<input type="text" class="form-control">
+												<input type="text" class="form-control" name="user">
 											</div>
 										</div>
+										
 										<div class="form-group row">
 											<label class="col-sm-4 col-form-label">Password*</label>
 											<div class="col-sm-8">
-												<input type="password" class="form-control">
+												<input type="password" class="form-control" name="password">
 											</div>
 										</div>
 										<div class="form-group row">
 											<label class="col-sm-4 col-form-label">Confirm Password*</label>
 											<div class="col-sm-8">
-												<input type="password" class="form-control">
+												<input type="password" class="form-control" name="confirmpassword">
 											</div>
+										</div>
+										<div class="form-group row">
+											<button type="submit" name="Submit">Submit</button>
 										</div>
 									</div>
 								</section>
 								<!-- Step 2 -->
-								<h5>Personal Information</h5>
+								<!-- <h5>Personal Information</h5>
 								<section>
 									<div class="form-wrap max-width-600 mx-auto">
 										<div class="form-group row">
@@ -123,7 +135,7 @@
 											</div>
 										</div>
 									</div>
-								</section>
+								</section> -->
 								<!-- Step 3 -->
 								<!-- <h5>Payment Method & Info</h5>
 								<section>
@@ -242,7 +254,7 @@
 	</div>
 	<!-- success Popup html Start -->
 	<button type="button" id="success-modal-btn" hidden data-toggle="modal" data-target="#success-modal" data-backdrop="static">Launch modal</button>
-	<div class="modal fade" id="success-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	 <div class="modal fade" id="success-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered max-width-400" role="document">
 			<div class="modal-content">
 				<div class="modal-body text-center font-18">
@@ -250,12 +262,12 @@
 					<div class="mb-30 text-center"><img src="public/frontend/vendors/images/success.png"></div>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				</div>
-				<div class="modal-footer justify-content-center">
+				 <div class="modal-footer justify-content-center">
 					<a href="{{URL::to('/login')}}" class="btn btn-primary">Done</a>
-				</div>
+				</div> 
 			</div>
 		</div>
-	</div>
+	</div> 
 	<!-- js -->
 	<script src="{{asset('public/frontend/vendors/scripts/core.js')}}"></script>
 	<script src="{{asset('public/frontend/vendors/scripts/script.min.js')}}"></script>

@@ -157,8 +157,12 @@ class HangHoaController extends Controller
     //danh sách thương hiệu đã xóa
     public function product_list_delete()
     {
+        $product_list = DB::table('hanghoa')
+        ->join('loaihanghoa','loaihanghoa.id_LHH','=','hanghoa.loai_HH')
+        ->join('thuonghieu','thuonghieu.id_TH','=','hanghoa.id_TH')
+        ->orderby('hanghoa.id_HH','desc')->where('trangthai_HH','0')->get();
         //$this->CheckLogin();
-        $product_list=DB::table('hanghoa')->where('trangthai_HH','0')->get();
+        // $product_list=DB::table('hanghoa')->where('trangthai_HH','0')->get();
         $manager_product=view('admin.hanghoa.danhsachHHdaxoa')->with('danhsachhanghoadaxoa',$product_list); //goi lai theo ten file da tao, $all_brand_product ở ngoài sẽ đc gán vào all_brand_product ở trong
         return view('welcome')->with('admin.hanghoa.danhsachHHdaxoa',$manager_product); // cái trang admin_layout sẽ chứa brand_product lun được gán vào biến $manager_brand_product
     }

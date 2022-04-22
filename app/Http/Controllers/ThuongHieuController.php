@@ -90,5 +90,36 @@ class ThuongHieuController extends Controller
         $manager_brand=view('admin.thuonghieu.danhsachTHdaxoa')->with('danhsachthuonghieudaxoa',$brand_list); //goi lai theo ten file da tao, $all_brand_product ở ngoài sẽ đc gán vào all_brand_product ở trong
         return view('welcome')->with('admin.thuonghieu.danhsachTHdaxoa',$manager_brand); // cái trang admin_layout sẽ chứa brand_product lun được gán vào biến $manager_brand_product
     }
+    //danh sách sản phẩm thuộc TH
+    public function list_product_product_typee($id_TH)
+    {
+    //$this->CheckLogin();
+    // $list_product_product_type=DB::table('loaihanghoa')->where('id_LHH',$id_LHH)->get();
+    // $manager_product_type=view('admin.loaihanghoa.sualoaihanghoa')->with('sualoaihanghoa',$edit_product_type); //goi lai theo ten file da tao, $all_brand_product ở ngoài sẽ đc gán vào all_brand_product ở trong
+    // return view('welcome')->with('admin.loaihanghoa.sualoaihanghoa',$manager_product_type); // cái trang admin_layout sẽ chứa brand_product lun được gán vào biến $manager_brand_product
+    $name_product_type =DB::table('hanghoa')
+    
+    ->join('loaihanghoa','loaihanghoa.id_LHH','=','hanghoa.loai_HH')
+    ->join('thuonghieu','thuonghieu.id_TH','=','hanghoa.id_TH')
+    ->orderby('hanghoa.id_HH','desc')->where('trangthai_HH','1')->where('thuonghieu.id_TH',$id_TH)->limit(1)->get();
+    
+    $count_product_product_type = DB::table('hanghoa')
+    
+    ->join('loaihanghoa','loaihanghoa.id_LHH','=','hanghoa.loai_HH')
+    ->join('thuonghieu','thuonghieu.id_TH','=','hanghoa.id_TH')
+    ->orderby('hanghoa.id_HH','desc')->where('trangthai_HH','1')->where('thuonghieu.id_TH',$id_TH)->get()->count();
+   
 
+    $list_product_product_typee = DB::table('hanghoa')
+    
+    ->join('loaihanghoa','loaihanghoa.id_LHH','=','hanghoa.loai_HH')
+    ->join('thuonghieu','thuonghieu.id_TH','=','hanghoa.id_TH')
+    ->orderby('hanghoa.id_HH','desc')->where('trangthai_HH','1')->where('thuonghieu.id_TH',$id_TH)->get();
+    // $manager_product=view('admin.loaihanghoa.productlist')->with('list_product_product_type',$list_product_product_type)->with('name_product_type',$name_product_type); //goi lai theo ten file da tao, $all_product ở ngoài sẽ đc gán vào all_product ở trong
+    // return view('welcome')->with('admin.loaihanghoa.productlist',$manager_product)->with('name_product_type',$name_product_type);
+    return view('admin.thuonghieu.brandlist')
+            ->with('name_product_type',$name_product_type)
+            ->with('list_product_product_typee',$list_product_product_typee)
+            ->with('count_product_product_type',$count_product_product_type);
+    }    
 }

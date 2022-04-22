@@ -1,18 +1,18 @@
 @extends('welcome')
 @section('content')
 <div class="card-box mb-30">
-    <h2 class="h4 pd-20 text-red" style="color:red">Danh sách hàng hóa đã xóa</h2>
+    <h2 class="h4 pd-20 text-red" style="color:red">Product Deleted</h2>
     <table class="data-table table nowrap" id="myTable">
         <thead>
             <tr>
-                <th class="table-plus datatable-nosort">Mã hàng hóa</th>
+                <th class="table-plus datatable-nosort">Code</th>
                 <!-- <th>Hình ảnh</th> -->
-                <th>Tên hàng hóa</th>
-				<th>Số lượng</th>
-                <th>Mô tả</th>
-				<th>Loại hàng hóa</th>
-				<th>Mã thương hiệu</th>
-				<th>Giá hàng hóa</th>
+                <th>Product name</th>
+				<th>Amount</th>
+                <th>Description</th>
+				<th>Product type</th>
+				<th>Brand name</th>
+				<th>Price</th>
             </tr>
         </thead>
         <tbody>
@@ -25,8 +25,8 @@
                 <td>{{$value->ten_HH}}</td>
 				<td>{{$value->so_luong}}</td>
                 <td>{{$value->mo_ta}}</td>
-                <td>{{$value->loai_HH}}</td>
-				<td>{{$value->id_TH}}</td>
+                <td>{{$value->ten_LHH}}</td>
+				<td>{{$value->ten_TH}}</td>
 				<td>{{$value->gia_HH}}</td>
                 <td>
                     <div class="dropdown">
@@ -34,7 +34,7 @@
                             <i class="dw dw-more"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                            <a class="dropdown-item" href="{{URL::to('/active-product/'.$value->id_HH)}}"><i class="dw dw-eye"></i>Khôi phục</a>
+                            <a class="dropdown-item" href="{{URL::to('/active-product/'.$value->id_HH)}}"><i class="dw dw-eye"></i>Restore</a>
                            
                             <a class="dropdown-item" href="{{URL::to('/delete-product/'.$value->id_HH)}}" onclick="return confirm('Bạn muốn xóa thông tin này???')" ui-toggle-class=""><i class="dw dw-delete-3"></i> Delete</a>
                         </div>

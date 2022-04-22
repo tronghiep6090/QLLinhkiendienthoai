@@ -21,6 +21,7 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('public/frontend/src/plugins/datatables/css/dataTables.bootstrap4.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('public/frontend/src/plugins/datatables/css/responsive.bootstrap4.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('public/frontend/vendors/styles/style.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('public/frontend/src/plugins/slick/slick.css')}}">
 
 	<link rel="stylesheet" type="text/css" href="{{asset('public/frontend/src/plugins/switchery/switchery.min.css')}}">
 	<!-- bootstrap-tagsinput css -->
@@ -391,7 +392,7 @@
 						<ul class="submenu">
 							<li><a href="{{URL::to('/them-thuonghieu')}}">Brand Add </a></li>
 							<li><a href="{{URL::to('/DS-thuonghieu')}}">Brand List</a></li>
-							<li><a href="{{URL::to('/DS-thuonghieudaxoa')}}">Brand List Deleted</a></li>
+							<li><a href="{{URL::to('/DS-thuonghieudaxoa')}}">Brand Deleted</a></li>
 						</ul>
 					</li>
 					<li class="dropdown">
@@ -401,7 +402,8 @@
 						<ul class="submenu">
 							<li><a href="{{URL::to('/them-hanghoa')}}">Product Add</a></li>
 							<li><a href="{{URL::to('/DS-hanghoa')}}">Product List</a></li>
-							<li><a href="{{URL::to('/DS-hanghoadaxoa')}}">Product List Deleted</a></li>
+							<li><a href="{{URL::to('/DS-hanghoa')}}">Product Delivery</a></li>
+							<li><a href="{{URL::to('/DS-hanghoadaxoa')}}">Product Deleted</a></li>
 						</ul>
 					</li>
 					<li class="dropdown">
@@ -411,7 +413,7 @@
 						<ul class="submenu">
 							<li><a href="{{URL::to('/them-loaihanghoa')}}">Product Type Add</a></li>
 							<li><a href="{{URL::to('/DS-loaihanghoa')}}">Product Type List</a></li>
-							<li><a href="{{URL::to('/DS-loaihanghoadaxoa')}}">Product Type List Deleted</a></li>
+							<li><a href="{{URL::to('/DS-loaihanghoadaxoa')}}">Product Type Deleted</a></li>
 						</ul>
 					</li>
 					<li class="dropdown">
@@ -421,7 +423,7 @@
 						<ul class="submenu">
 							<li><a href="{{URL::to('/them-nhacungcap')}}">Manufacture Add</a></li>
 							<li><a href="{{URL::to('/DS-nhacungcap')}}">Manufacture List</a></li>
-							<li><a href="{{URL::to('/DS-nhacungcapdaxoa')}}">Manufacture List Deleted</a></li>
+							<li><a href="{{URL::to('/DS-nhacungcapdaxoa')}}">Manufacture Deleted</a></li>
 						</ul>
 					</li>
 					<li class="dropdown">
@@ -431,7 +433,7 @@
 						<ul class="submenu">
 							<li><a href="{{URL::to('/them-khachhang')}}">Customer Add</a></li>
 							<li><a href="{{URL::to('/DS-khachhang')}}">Customer List </a></li>
-							<li><a href="{{URL::to('/DS-khachhangdaxoa')}}">Customer List Deleted</a></li>
+							<li><a href="{{URL::to('/DS-khachhangdaxoa')}}">Customer Deleted</a></li>
 						</ul>
 					</li>
 					<li class="dropdown">
@@ -439,9 +441,9 @@
 							<span class="micon dw"><i class="icon-copy fa fa-file-text-o" aria-hidden="true"></i></span><span class="mtext">Bill</span>
 						</a>
 						<ul class="submenu">
-							<li><a href="{{URL::to('/them-chuc-vu')}}">Thêm chức vụ</a></li>
-							<li><a href="{{URL::to('/DS-chuc-vu')}}">Danh sách chức vụ</a></li>
-							<li><a href="{{URL::to('/DS-hoadon')}}">Bill_list</a></li>
+							<li><a href="{{URL::to('/them-hoadon')}}">Bill	Add</a></li>
+							<li><a href="{{URL::to('/DS-hoadon')}}">Bill List</a></li>
+							<li><a href="{{URL::to('/DS-hoadondaxoa')}}">Bill Deleted</a></li>
 						</ul>
 					</li>
 					<li class="dropdown">
@@ -451,7 +453,7 @@
 						<ul class="submenu">
 							<li><a href="{{URL::to('/them-nhanvien')}}">Vouchers Add</a></li>
 							<li><a href="{{URL::to('/DS-nhanvien')}}">Vouchers List</a></li>
-							<li><a href="{{URL::to('/DS-nhanviendaxoa')}}">Vouchers List Deleted</a></li>
+							<li><a href="{{URL::to('/DS-nhanviendaxoa')}}">Vouchers Deleted</a></li>
 							
 						</ul>
 					</li>
@@ -462,7 +464,7 @@
 						<ul class="submenu">
 							<li><a href="{{URL::to('/them-phieumuahang')}}">Staff Add</a></li>
 							<li><a href="{{URL::to('/DS-phieumuahang')}}">Staff List</a></li>
-							<li><a href="{{URL::to('/DS-phieumuahangdaxoa')}}">Staff List Deleted</a></li>
+							<li><a href="{{URL::to('/DS-phieumuahangdaxoa')}}">Staff Deleted</a></li>
 							
 						</ul>
 					</li>

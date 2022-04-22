@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTblChucvuTable extends Migration
+class CreateTblChitiethoadon extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateTblChucvuTable extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_chucvu', function (Blueprint $table) {
-            $table-> increments('id_chucvu');
-            $table-> string('ma_cv');
-            $table-> string('ten_cv');
-            $table-> string('luong');
-            $table-> string('mo_ta');
+        Schema::create('chitiethoadon', function (Blueprint $table) {
+            $table-> increments('id_CTHD');
+            $table-> string('id_HH');
+            $table-> string('id_HD');
+            $table-> string('gia_HH');
+            $table-> string('so_luong');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateTblChucvuTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_chucvu');
+        Schema::dropIfExists('chitiethoadon');
     }
 }

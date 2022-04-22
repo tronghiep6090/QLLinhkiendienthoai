@@ -6,10 +6,7 @@
         <div class="col-lg-6 col-md-12 col-sm-12">
             <div class="product-slider slider-arrow">
                 <div class="product-slide">
-                    <img src="public/frontend/vendors/images/product/{{$value->hinh_anh}}" alt="">
-                </div>
-                <div class="product-slide">
-                    <img src="public/frontend/vendors/images/product/{{$value->hinh_anh}}" alt="">
+                    <img src="{{asset('public/frontend/vendors/images/product/'.$value->hinh_anh)}}" alt="">
                 </div>
                 <div class="product-slide">
                     <img src="public/frontend/vendors/images/product/{{$value->hinh_anh}}" alt="">
@@ -35,21 +32,22 @@
         </div>
         <div class="col-lg-6 col-md-12 col-sm-12">
             <div class="product-detail-desc pd-20 card-box height-100-p">
-                <h4 class="mb-20 pt-20">Tên hàng hóa: {{$value->ten_HH}}</h4>
+                <h4 class="mb-20 pt-20">Product name: {{$value->ten_HH}}</h4>
+                <!-- <img src="public/frontend/vendors/images/product/{{$value->hinh_anh}}" height="80" width="80"> -->
                 <div class="price">
-                Tên loại hàng hóa: <ins>{{$value->ten_LHH}}</ins>
+                Product type: <ins>{{$value->ten_LHH}}</ins>
                 </div>
                 <div class="price">
-                Tên thương hiệu: <ins>{{$value->ten_TH}}</ins>
+                Brand name: <ins>{{$value->ten_TH}}</ins>
                 </div>
                 <div class="price">
-                Mô tả: <ins>{{$value->mo_ta}}</ins>
+                Description: <ins>{{$value->mo_ta}}</ins>
                 </div>
                 <div class="price">
-                    Giá: <ins>{{$value->gia_HH}}</ins>
+                Price: <ins>{{$value->gia_HH}}</ins>
                 </div>
                 <div class="price">
-                Số lượng: <ins>{{$value->so_luong}}</ins>
+                Amount: <ins>{{$value->so_luong}}</ins>
                 </div>
                 <!-- <div class="row">
                     <div class="col-md-6 col-6">
@@ -64,4 +62,31 @@
     </div>
 </div>
 @endforeach
+<script>
+		jQuery(document).ready(function() {
+			jQuery('.product-slider').slick({
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				arrows: true,
+				infinite: true,
+				speed: 1000,
+				fade: true,
+				asNavFor: '.product-slider-nav'
+			});
+			jQuery('.product-slider-nav').slick({
+				slidesToShow: 3,
+				slidesToScroll: 1,
+				asNavFor: '.product-slider',
+				dots: false,
+				infinite: true,
+				arrows: false,
+				speed: 1000,
+				centerMode: true,
+				focusOnSelect: true
+			});
+			$("input[name='demo3_22']").TouchSpin({
+				initval: 1
+			});
+		});
+	</script>
 @endsection

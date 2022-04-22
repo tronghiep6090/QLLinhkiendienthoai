@@ -3,23 +3,23 @@
 <div class="pd-20 card-box mb-30">
 					<div class="clearfix">
 						<div class="pull-left">
-							<h4 class="text-blue h4">Thêm thương hiệu</h4>
+							<h4 class="text-blue h4">Brand Add</h4>
 						</div>
 						<form action="{{URL::to('/save-brand')}}" method="post">
 							{{ csrf_field()}}
 							</div>
 							<div class="form-group row">
-								<label class="col-sm-12 col-md-2 col-form-label">Tên thương hiệu</label>
+								<label class="col-sm-12 col-md-2 col-form-label">Brand name</label>
 								<div class="col-sm-12 col-md-6">
 									<input class="form-control" name="ten_TH" >
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="col-sm-12 col-md-2 col-form-label">Mô tả</label>
+								<label class="col-sm-12 col-md-2 col-form-label">Description</label>
 								<textarea class="form-control" name="mota_TH"></textarea>
 							</div>
 							<div class="pull-right">
-								<button type="submit" name="add_brand_product" class="btn btn-primary btn-sm scroll-click" rel="content-y"  data-toggle="collapse" role="button"><i ></i>Thêm</button>
+								<button type="submit" name="add_brand_product" class="btn btn-primary btn-sm scroll-click" rel="content-y"  data-toggle="collapse" role="button"><i ></i>Add</button>
 							</div>
 								</code></pre>
 							</div>

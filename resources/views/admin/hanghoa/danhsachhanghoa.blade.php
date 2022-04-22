@@ -1,19 +1,19 @@
 @extends('welcome')
 @section('content')
 <div class="card-box mb-30">
-    <h2 class="h4 pd-20 text-blue">Danh sách hàng hóa</h2>
+    <h2 class="h4 pd-20 text-blue">Product List</h2>
     
     <table class="data-table table nowrap" id="myTable">
         <thead>
             <tr>
-                <th class="table-plus datatable-nosort">Mã hàng hóa</th>
-                <th>Hình ảnh</th>
-                <th>Tên hàng hóa</th>
-				<th>Số lượng</th>
-                <th>Mô tả</th>
-				<th>Loại hàng hóa</th>
-				<th>Tên thương hiệu</th>
-				<th>Giá hàng hóa</th>
+                <th class="table-plus datatable-nosort">Code</th>
+                <th>Image</th>
+                <th>Product name</th>
+				<th>Amount</th>
+                <th>Description</th>
+				<th>Product type</th>
+				<th>Brand name</th>
+				<th>Price</th>
             </tr>
         </thead>
         <tbody>

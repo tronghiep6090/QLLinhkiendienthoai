@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests;
+use Exception;
 use Illuminate\Support\Facades\Redirect;
 session_start();
 
@@ -82,4 +83,23 @@ class LoginController extends Controller
         }
     }
 
+    public function regis(Request $request)
+    {
+        $data = array();
+        $data['name']= $request->user;
+        $data['email']= $request->email;
+        $data['password']= $request->password;
+        $data['remember_token']= $request->confirmpassword;
+        try {
+             $NO = DB::table('users')->insert($data); 
+             Session::put('message','Đăng Ký Thành công !');
+        return view('admin.login.register');
+          } catch (Exception $e) { 
+            return view('admin.login.register');
+            }
+      
+       
+        //return redirect::to('/admin.login.register');
+        //view('admin.login.forgotpassword');
+    }
 }

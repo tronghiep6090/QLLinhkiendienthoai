@@ -5,8 +5,8 @@
 
         @foreach($name_product_type as $key => $value)
         <div >
-            <h2 class="h4 pd-20 text-blue">Danh sách hàng hóa thuộc - {{$value->ten_LHH}}
-                <span style="float: right;">Số lượng : {{$count_product_product_type}}</span>
+            <h2 class="h4 pd-20 text-blue">List of products belong - {{$value->ten_LHH}}
+                <span style="float: right;">Total : {{$count_product_product_type}}</span>
             </h2>
             
         </div>
@@ -15,14 +15,13 @@
     <table class="data-table table nowrap" id="myTable">
         <thead>
             <tr>
-                <th class="table-plus datatable-nosort">Mã hàng hóa</th>
-                <!-- <th>Hình ảnh</th> -->
-                <th>Tên hàng hóa</th>
-				<th>Số lượng</th>
-                <th>Mô tả</th>
-				<th>Loại hàng hóa</th>
-				<th>Tên thương hiệu</th>
-				<th>Giá hàng hóa</th>
+                <th class="table-plus datatable-nosort">Code</th>
+                <th>Image</th>
+                <th>Product name</th>
+				<th>Amount</th>
+                <th>Description</th>
+				<th>Brand name</th>
+				<th>Price</th>
             </tr>
         </thead>
         <tbody>
@@ -31,11 +30,10 @@
                 <td>
                     <h5 class="font-16">{{$value->id_HH}}</h5>
                 </td>
-                <!-- <td><img src="public/frontend/vendors/images/product/{{$value->hinh_anh}}" height="80" width="80"></td> -->
+                <td><img src="{{asset('public/frontend/vendors/images/product/'.$value->hinh_anh)}}" height="80" width="80"></td>
                 <td>{{$value->ten_HH}}</td>
 				<td>{{$value->so_luong}}</td>
                 <td>{{$value->mo_ta}}</td>
-                <td>{{$value->ten_LHH}}</td>
 				<td>{{$value->ten_TH}}</td>
 				<td>{{$value->gia_HH}}</td>
                 <td>
