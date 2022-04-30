@@ -261,7 +261,6 @@
 						<span class="user-name">Nguyen Trong Hiep</span>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-						<a class="dropdown-item" href="profile.html"><i class="dw dw-user1"></i> Profile</a>
 						<a class="dropdown-item" href="profile.html"><i class="dw dw-settings2"></i> Setting</a>
 						<?php
                             $id = Session::get('id');
@@ -402,8 +401,17 @@
 						<ul class="submenu">
 							<li><a href="{{URL::to('/them-hanghoa')}}">Product Add</a></li>
 							<li><a href="{{URL::to('/DS-hanghoa')}}">Product List</a></li>
-							<li><a href="{{URL::to('/DS-hanghoa')}}">Product Delivery</a></li>
 							<li><a href="{{URL::to('/DS-hanghoadaxoa')}}">Product Deleted</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="javascript:;" class="dropdown-toggle">
+							<span class="micon dw"><i class="icon-copy fa fa-puzzle-piece" aria-hidden="true"></i></span><span class="mtext">Product Delivery</span>
+						</a>
+						<ul class="submenu">
+							<li><a href="{{URL::to('/them-donxuat')}}">Product Delivery Add</a></li>
+							<li><a href="{{URL::to('/DS-donxuat')}}">Product Delivery List</a></li>
+							<li><a href="{{URL::to('/DS-donxuatdaxoa')}}">Product Delivery Deleted</a></li>
 						</ul>
 					</li>
 					<li class="dropdown">
@@ -459,12 +467,23 @@
 					</li>
 					<li class="dropdown">
 						<a href="javascript:;" class="dropdown-toggle">
-							<span class="micon dw"><i class="icon-copy dw dw-calendar-11"></i></span><span class="mtext">Staff</span>
+							<span class="micon dw"><i class="icon-copy fa fa-address-book"></i></span><span class="mtext">Personnel</span>
 						</a>
 						<ul class="submenu">
-							<li><a href="{{URL::to('/them-phieumuahang')}}">Staff Add</a></li>
-							<li><a href="{{URL::to('/DS-phieumuahang')}}">Staff List</a></li>
-							<li><a href="{{URL::to('/DS-phieumuahangdaxoa')}}">Staff Deleted</a></li>
+							<li><a href="{{URL::to('/them-nhanvien')}}">Personnel Add</a></li>
+							<li><a href="{{URL::to('/DS-nhanvien')}}">Personnel List</a></li>
+							<li><a href="{{URL::to('/DS-nhanviendaxoa')}}">Personnel Deleted</a></li>
+							
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="javascript:;" class="dropdown-toggle">
+							<span class="micon dw"><i class="icon-copy fa fa-calculator"></i></span><span class="mtext">Unit</span>
+						</a>
+						<ul class="submenu">
+							<li><a href="{{URL::to('/them-donvitinh')}}">Unit Add</a></li>
+							<li><a href="{{URL::to('/DS-donvitinh')}}">Unit List</a></li>
+							<li><a href="{{URL::to('/DS-donvitinhdaxoa')}}">Unit Deleted</a></li>
 							
 						</ul>
 					</li>

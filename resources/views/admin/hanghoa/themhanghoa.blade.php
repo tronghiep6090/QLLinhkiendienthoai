@@ -57,7 +57,7 @@
 
 			</div>
 			<div class="form-group">
-				<label class="col-sm-12 col-md-2 col-form-label">Description</label>
+				<label class="col-sm-12 col-md-2 col-form-label">Unit</label>
 				<textarea class="form-control" name="mo_ta"></textarea>
 			</div>
 			

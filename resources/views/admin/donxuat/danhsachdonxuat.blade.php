@@ -1,47 +1,44 @@
 @extends('welcome')
 @section('content')
 <div class="card-box mb-30">
-    <h2 class="h4 pd-20 text-blue">Product List</h2>
+    <h2 class="h4 pd-20 text-blue">Product Delivery List</h2>
     
     <table class="data-table table nowrap" id="myTable">
         <thead>
             <tr>
                 <th class="table-plus datatable-nosort">ID</th>
-                <th>Image</th>
-                <th>Product name</th>
-				<th>Amount</th>
-                <th>Unit</th>
-				<th>Product type</th>
-				<!-- <th>Brand name</th> -->
-				<th>Import Price</th>
-                <th>Export Price</th>
+                <th>Date</th>
+                <th>Staff</th>
+				<th>Customer</th>
+                <th>Product type</th>
+                <th>Brand</th>
+				<th>Total</th>
+				<th>Status</th>
             </tr>
         </thead>
         <tbody>
-        @foreach($danhsachhanghoa as $key => $value)
+        @foreach($danhsachdonxuat as $key => $value)
             <tr>
                 <td>
-                    <h5 class="font-16">{{$value->id_HH}}</h5>
+                    <h5 class="font-16">{{$value->id_DX}}</h5>
                 </td>
-                <td><img src="public/frontend/vendors/images/product/{{$value->hinh_anh}}" height="80" width="80"></td>
-                <td>{{$value->ten_HH}}</td>
-				<td>{{$value->so_luong}}</td>
-                <td>{{$value->mo_ta}}</td>
-				
-                <td>{{$value->ten_LHH}}</td>
-				<!-- <td>{{$value->ten_TH}}</td> -->
+                <td>{{$value->ngay_ban}}</td>
+				<td>{{$value->id_NV}}</td>
+                <td>{{$value->id_KH}}</td>
+				<td>{{$value->ten_LHH}}</td>
+                <td>{{$value->id_TH}}</td>
 
-				<td>{{$value->gia_HH}}</td>
-                <td>{{$value->gia_HH}}</td>
+				<td>{{$value->tong}}</td>
+                <td>{{$value->trang_thai}}</td>
                 <td>
                     <div class="dropdown">
                         <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
                             <i class="dw dw-more"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                            <a class="dropdown-item" href="{{URL::to('/view-product/'.$value->id_HH)}}"><i class="dw dw-eye"></i> View</a>
-                            <a class="dropdown-item" href="{{URL::to('/edit-product/'.$value->id_HH)}}"><i class="dw dw-edit2"></i> Edit</a>
-                            <a class="dropdown-item" href="{{URL::to('/unactive-product/'.$value->id_HH)}}" onclick="return confirm('Bạn muốn xóa thông tin này???')" ui-toggle-class=""><i class="dw dw-delete-3"></i> Delete</a>
+                            <a class="dropdown-item" href="{{URL::to('/view-delivery/'.$value->id_DX)}}"><i class="dw dw-eye"></i> View</a>
+                            <a class="dropdown-item" href="{{URL::to('/edit-delivery/'.$value->id_DX)}}"><i class="dw dw-edit2"></i> Print</a>
+                            <a class="dropdown-item" href="{{URL::to('/unactive-delivery/'.$value->id_DX)}}" onclick="return confirm('Bạn muốn xóa thông tin này???')" ui-toggle-class=""><i class="dw dw-delete-3"></i> Delete</a>
                         </div>
                     </div>
                 </td>

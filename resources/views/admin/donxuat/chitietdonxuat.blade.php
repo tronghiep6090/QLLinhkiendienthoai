@@ -1,6 +1,6 @@
 @extends('welcome')
 @section('content')
-@foreach($chitiethanghoa as $key => $value)
+@foreach($chitietdonxuat as $key => $value)
 <div class="product-detail-wrap mb-30">
     <div class="row">
         <div class="col-lg-6 col-md-12 col-sm-12">

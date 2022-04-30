@@ -90,6 +90,7 @@ class ThuongHieuController extends Controller
         $manager_brand=view('admin.thuonghieu.danhsachTHdaxoa')->with('danhsachthuonghieudaxoa',$brand_list); //goi lai theo ten file da tao, $all_brand_product ở ngoài sẽ đc gán vào all_brand_product ở trong
         return view('welcome')->with('admin.thuonghieu.danhsachTHdaxoa',$manager_brand); // cái trang admin_layout sẽ chứa brand_product lun được gán vào biến $manager_brand_product
     }
+    
     //danh sách sản phẩm thuộc TH
     public function list_product_product_typee($id_TH)
     {
