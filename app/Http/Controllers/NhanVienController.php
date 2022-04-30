@@ -13,20 +13,21 @@ class NhanVienController extends Controller
     //
     public function staff_add()
     {
-        
-        return view('admin.nhanvien.themnhanvien');
+        $chucvu = DB::table('chucvu')->orderby('id_CV','desc')->get();
+        return view('admin.nhanvien.themnhanvien')->with('chucvu',$chucvu);
     }
     public function save_staff(Request $request)
     {
         $data = array();
         $data['ten_NV']= $request->ten_NV;
+        $data['id_CV']= $request->id_CV;
         $data['dien_thoai']= $request->dien_thoai;
         $data['e_mail']= $request->e_mail;
         
         $data['dia_chi']= $request->dia_chi;
         $data['tai_khoan']= $request->tai_khoan;
         $data['mat_khau']= $request->mat_khau;
-        $data['trang_thai']=1;
+        $data['trangthai_NV']=1;
         DB::table('nhanvien')->insert($data);
         Session::put('message','Thêm NV Thành công !');
 
@@ -36,9 +37,11 @@ class NhanVienController extends Controller
     public function staff_list()
     {
         //$this->CheckLogin();
-        $staff_list=DB::table('nhanvien')->where('trang_thai','1')->get();
-        $manager_staff=view('admin.nhanvien.danhsachnhanvien')->with('danhsachnhanvien',$staff_list); //goi lai theo ten file da tao, $all_brand_product ở ngoài sẽ đc gán vào all_brand_product ở trong
-        return view('welcome')->with('admin.nhanvien.danhsachnhanvien',$manager_staff); // cái trang admin_layout sẽ chứa brand_product lun được gán vào biến $manager_brand_product
+        $hh = DB::table('nhanvien')
+        ->join('chucvu','chucvu.id_CV','=','nhanvien.id_CV')
+        ->orderby('nhanvien.id_NV','desc')->where('trangthai_NV','1')->get();
+        $manager_delivery=view('admin.nhanvien.danhsachnhanvien')->with('danhsachnhanvien',$hh); //goi lai theo ten file da tao, $all_product ở ngoài sẽ đc gán vào all_product ở trong
+        return view('welcome')->with('nhanvien',$manager_delivery); // cái trang admin_layout sẽ chứa brand_product lun được gán vào biến $manager_brand_product
     }
     //edit
     public function edit_staff($id_NV)
@@ -52,6 +55,7 @@ class NhanVienController extends Controller
     {
         $data = array();
         $data['ten_NV']= $request->ten_NV;
+        $data['id_CV']= $request->id_CV;
         $data['dien_thoai']= $request->dien_thoai;
         $data['e_mail']= $request->e_mail;
         $data['dia_chi']= $request->dia_chi;
@@ -73,7 +77,7 @@ class NhanVienController extends Controller
     ///ẩn
     public function unactive_staff($id_NV) //giống với cái tên bên web.php đặt á $brand_product_id
     {
-        DB::table('nhanvien')->where('id_NV',$id_NV)->update(['trang_thai'=>0]);
+        DB::table('nhanvien')->where('id_NV',$id_NV)->update(['trangthai_NV'=>0]);
         Session::put('message','Xóa thành công');
         return Redirect::to('/DS-nhanvien');
     }
@@ -81,7 +85,7 @@ class NhanVienController extends Controller
     ///khôi phục
     public function active_staff($id_NV) //giống với cái tên bên web.php đặt á $brand_product_id
     {
-        DB::table('nhanvien')->where('id_NV',$id_NV)->update(['trang_thai'=>1]);
+        DB::table('nhanvien')->where('id_NV',$id_NV)->update(['trangthai_NV'=>1]);
         Session::put('message','khôi phục thành công');
         return Redirect::to('/DS-nhanvien');
     }
@@ -90,7 +94,7 @@ class NhanVienController extends Controller
     public function staff_list_delete()
     {
         //$this->CheckLogin();
-        $staff_list=DB::table('nhanvien')->where('trang_thai','0')->get();
+        $staff_list=DB::table('nhanvien')->where('trangthai_NV','0')->get();
         $manager_staff=view('admin.nhanvien.danhsachnhanviendaxoa')->with('danhsachnhanviendaxoa',$staff_list); //goi lai theo ten file da tao, $all_brand_product ở ngoài sẽ đc gán vào all_brand_product ở trong
         return view('welcome')->with('admin.nhanvien.danhsachnhanviendaxoa',$manager_staff); // cái trang admin_layout sẽ chứa brand_product lun được gán vào biến $manager_brand_product
     }

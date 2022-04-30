@@ -96,7 +96,7 @@ Route::get('/view-product/{id_HH}','HangHoaController@view_product');
 Route::get('/DS-donxuat','DonXuatController@delivery_list');
 Route::get('/them-donxuat','DonXuatController@delivery_add');
 Route::post('/save-delivery','DonXuatController@save_delivery');
-
+Route::get('/update-brand/{id_TH}','DonXuatController@update_brand');
 Route::get('/add-delivery','DonXuatController@add_delivery');//Lấy dữ liệu bảng loại hàng hóa và bảng thương hiệu để hiển thị tên
 //xóa đơn xuất
 Route::get('/unactive-delivery/{id_DX}','DonXuatController@unactive_delivery');//tạo thêm môt tham số { category_product_id } tên gì cũng đc để dễ phân biệt
@@ -106,6 +106,14 @@ Route::get('/delete-delivery/{id_DX}','DonXuatController@delete_delivery');//xó
 Route::get('/active-delivery/{id_DX}','DonXuatController@active_delivery');//khôi phục
 //chi tiết hàng hóa
 Route::get('/view-delivery/{id_DX}','DonXuatController@view_delivery');
+
+// Quan ly Export
+// Route::get('exportList', 'DonXuatController@index');
+// Route::get('addExport', 'DonXuatController@addGet');
+// Route::post('addExport', 'DonXuatController@addPost');
+// Route::get('editExport/{id}', 'DonXuatController@editGet');
+// Route::post('editExport/{id}', 'DonXuatController@editPost');
+// Route::post('exportList/deletePost', 'DonXuatController@deletePost');
 //---------------------------
 
 //Quản lý nhà cung cấp

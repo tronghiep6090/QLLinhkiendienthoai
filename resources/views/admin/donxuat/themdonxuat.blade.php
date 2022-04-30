@@ -8,7 +8,6 @@
 						<form action="{{URL::to('/save-delivery')}}" method="post">
 							{{ csrf_field()}}
 							</div>
-							<!-- Select-2 Start -->
 						<div class="pd-20 card-box mb-30">
 
 								<div class="row">
@@ -43,13 +42,15 @@
 								<div class="col-md-6">
 									<label>Brand</label>
 									<div class="form-group">
-										<select class="custom-select col-12" name="id_TH">
+										<select class="custom-select col-12" name="id_TH" id="selectId">
 											<option selected="">Choose...</option>
 											@foreach($thuonghieu as $key=>$cate)
 												<option value="{{$cate->id_TH}}">{{$cate->ten_TH}}</option>
 											@endforeach
 										</select>
+										
 									</div>
+
 								</div>
 								<div class="col-md-6">
 									<label>Product Type</label>
@@ -82,7 +83,14 @@
 
                 <div class="col-md-4 form-group mb-3">
                     <label class="" for="validationDefault01">Sản Phẩm</label>
-                    <input type="text" class="form-control"  id="ten_HH" name="ten_HH"  placeholder="Tên" >
+                    <div class="form-group">
+						<select class="custom-select col-12" name="id_HH">
+							<option selected="">Choose...</option>
+							@foreach($loaihanghoa as $key=>$cate)
+								<option value="{{$cate->id_LHH}}">{{$cate->ten_LHH}}</option>
+							@endforeach
+						</select>
+					</div>
                 </div>
                 <div class="col-md-3 form-group mb-3">
                     <label for="validationDefault01">Số lượng</label>
@@ -110,18 +118,37 @@
             </table>
         </FIELDSET>
         <button type="submit" name="add" class=" mt-2 ml-5 btn-danger btn">Tạo </button>
-				<!-- Select-2 end -->
-						</div>
-						<?php
-							// $message = Session::get('message');
-							// if($message){
-							// 	echo $message;
-							// 	Session::put('message',null);
-							// }
-						?>
-						</form>
-						
-					</div>
-				</div>
+				
 
+@endsection
+
+@section('myjsfile')
+<script type="text/javascript">
+            jQuery(document).ready(function ()
+            {
+                    jQuery('select[name="selectId"]').on('change',function(){
+                       var categoryID = jQuery(this).val();
+                       if(categoryID)
+                       {
+                          jQuery.ajax({
+                             url : 'DonXuatController/update-brand/' +categoryID,
+                             type : "GET",
+                             dataType : "json",
+                             success:function(data)
+                             {
+                                console.log(data);
+                                jQuery('select[name="selectId"]').empty();
+                                jQuery.each(data, function(key,value){
+                                   $('select[name="selectId"]').append('<option value="'+ key +'">'+ value +'</option>');
+                                });
+                             }
+                          });
+                       }
+                       else
+                       {
+                          $('select[name="selectId"]').empty();
+                       }
+                    });
+            });
+ </script>
 @endsection

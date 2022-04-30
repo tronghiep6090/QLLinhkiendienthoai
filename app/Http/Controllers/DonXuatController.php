@@ -1,20 +1,23 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller;
+use App\Export;
+use App\Http\Requests\ExportRequest;
+use App\Total;
+use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Facade\FlareClient\View;
 
 class DonXuatController extends Controller
 {
-    // public function delivery_add()
-    // {
-        
-    //     return view('admin.donxuat.themdonxuat');
-    // }
     public function delivery_add()
     {
         $nhanvien = DB::table('nhanvien')->orderby('id_NV','desc')->get();
@@ -51,23 +54,12 @@ class DonXuatController extends Controller
         $manager_delivery=view('admin.donxuat.danhsachdonxuat')->with('all_delivery',$hh); //goi lai theo ten file da tao, $all_product ở ngoài sẽ đc gán vào all_product ở trong
         return view('welcome')->with('donxuat',$manager_delivery);
 
-        // $kh = DB::table('hanghoa')->get();
-        // $data = view('admin.hanghoa.danhsachhanghoa')->with('DShanghoa',$kh);
-        // return view('welcome')->with('hanghoa',$data);
+    
     }
-    // public function delivery_list()
-    // {
-    //     //$this->CheckLogin();
-    //     $delivery_list=DB::table('donxuat')->where('trangthai_DX','1')->get();
-    //     $manager_delivery=view('admin.donxuat.danhsachdonxuat')->with('danhsachdonxuat',$delivery_list); //goi lai theo ten file da tao, $all_brand_product ở ngoài sẽ đc gán vào all_brand_product ở trong
-    //     return view('welcome')->with('admin.donxuat.danhsachdonxuat',$manager_delivery);// cái trang admin_layout sẽ chứa brand_product lun được gán vào biến $manager_brand_product
-    // }
+    
     public function delivery_list()
     {
-        // $this->CheckLogin();
-        // $product_list=DB::table('hanghoa')->where('trangthai_HH','1')->get();
-        // $manager_product=view('admin.hanghoa.danhsachhanghoa')->with('danhsachhanghoa',$product_list); //goi lai theo ten file da tao, $all_brand_product ở ngoài sẽ đc gán vào all_brand_product ở trong
-        // return view('welcome')->with('admin.hanghoa.danhsachhanghoa',$manager_product); // cái trang admin_layout sẽ chứa brand_product lun được gán vào biến $manager_brand_product
+       
 
         $hh = DB::table('donxuat')
         ->join('nhanvien','nhanvien.id_NV','=','donxuat.id_NV')
@@ -109,4 +101,115 @@ class DonXuatController extends Controller
         $manager_delivery=view('admin.donxuat.danhsachDXdaxoa')->with('danhsachkhachhangdaxoa',$delivery_list); //goi lai theo ten file da tao, $all_brand_product ở ngoài sẽ đc gán vào all_brand_product ở trong
         return view('welcome')->with('admin.donxuat.danhsachDXdaxoa',$manager_delivery); // cái trang admin_layout sẽ chứa brand_product lun được gán vào biến $manager_brand_product
     }
+
+    public function update_brand($id_DX)
+    {
+       return "hello";
+       
+    }
 }
+
+// class DonXuatController extends Controller
+// {
+//     /**
+//      * Create a new controller instance.
+//      *
+//      * @return void
+//      */
+//     public function __construct()
+//     {
+//         $this->middleware('auth');
+//     }
+
+//     public function index(){
+//         $data = DB::table('donxuat')
+//                     ->join('products', 'Exports.product_id', '=', 'products.id')
+//                     ->select('Exports.*', 'products.name as productName', 'products.ma_product')
+//                     ->orderBy('Exports.id','DESC')
+//                     ->get()
+//                     ->toArray();
+//         return view('admin.donxuat.index',compact('data'));
+//     }
+
+//     public function addGet(){
+//         $product = Product::select('id','ma_product')->orderBy('id','DESC')->get()->toArray();
+//         return view('pages.export.add', compact('product'));
+//     }
+
+//     public function addPost(ExportRequest $request){
+//         $export = new Export;
+//         $export->quantity= $request->quantity;
+//         $export->product_id = $request->product_id;
+//         $export->save();
+        
+//         // Update or add totals table
+//         $total = DB::table('totals')->where('product_id', $request->product_id)->first();
+        
+//         if(count($total) == 0){ // Insert new row
+//             $total = new Total;
+//             $total->exp_quantities = $request->quantity;
+//             $total->imp_quantities = 0;
+//             $total->product_id = $request->product_id;
+//             $total->save();
+//         }else{// Edit
+//             $exp_quantities = $total->exp_quantities + $request->quantity;
+            
+//             DB::table('totals')
+//             ->where('totals.product_id', $request->product_id)
+//             ->update(['totals.exp_quantities' => $exp_quantities]);
+//         }
+        
+//         return redirect('admin/exportList')->with(['flash-message'=> 'Bạn đã thêm xuất kho thành công','flash-type'=>'success']);
+//     }
+// }
+//     public function editGet($id){
+//         $data = DB::table('Exports')
+//         ->join('products', 'Exports.product_id', '=', 'product_id')
+//         ->select('Exports.*', 'products.name as productName', 'products.ma_product')
+//         ->where('Exports.id', $id)
+//         ->get()
+//         ->toArray();
+//         return view('pages.export.edit',compact('data'));
+//     }
+
+//     public function editPost(ExportRequest $request, $id){
+//         $export = Export::find($id);
+//         // Update exp_quantities totals table
+//         $total = DB::table('totals')->where('product_id', $request->product_id)->first();
+//         $exp_quantities = ($total->exp_quantities - $export->quantity) + $request->quantity;
+        
+//         DB::table('totals')
+//             ->where('totals.product_id', $request->product_id)
+//             ->update(['totals.exp_quantities' => $exp_quantities]);
+        
+//         $export->quantity = $request->quantity;
+//         $export->save();
+//         return redirect('admin/exportList')->with(['flash-message'=> 'Bạn đã sửa xuất kho thành công','flash-type'=>'success']);
+//     }
+
+//     public function expExportExcel(){
+//         $ext = 'xls';//, xlsx, csv, pdf...
+//         $fileName = 'QuanLyXuatKho_'.date('Y-m-d-H-i-s');
+        
+//         Excel::create($fileName, function($excel) {
+//             $excel->sheet('All', function($sheet) {
+//                 $data = DB::table('Exports')
+//                 ->join('products', 'Exports.product_id', '=', 'products.id')
+//                 ->select('Exports.*', 'products.name as productName', 'products.ma_product')
+//                 ->orderBy('Exports.id','DESC')
+//                 ->get()
+//                 ->toArray();
+//                 $sheet->loadView('pages.export.excel', ['data' => $data]);
+//             });
+//         })->download($ext);
+//     }
+    
+//     public function deletePost(){
+//         $id =  Input::get('id');
+//         $export = Export::find($id);
+//         $export->delete();
+
+//         $msg = "OK";
+//         return response()->json(array('msg'=> $msg), 200);
+//     }
+// }

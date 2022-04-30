@@ -532,6 +532,8 @@ function myFunction() {
 	<script src="{{asset('public/frontend/src/plugins/datatables/js/responsive.bootstrap4.min.js')}}"></script>
 	<script src="{{asset('public/frontend/vendors/scripts/dashboard.js')}}"></script>
 
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> -->
 		<!-- switchery js -->
 		<script src="{{asset('public/frontend/src/plugins/switchery/switchery.min.js')}}"></script>
 	<!-- bootstrap-tagsinput js -->
@@ -539,5 +541,6 @@ function myFunction() {
 	<!-- bootstrap-touchspin js -->
 	<script src="{{asset('public/frontend/src/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.js')}}"></script>
 	<script src="{{asset('public/frontend/vendors/scripts/advanced-components.js')}}"></script>
+	<!-- @yield('myjsfile') -->
 </body>
 </html>

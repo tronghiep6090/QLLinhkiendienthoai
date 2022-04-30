@@ -7,6 +7,7 @@
             <tr>
                 <th class="table-plus datatable-nosort">ID</th>
                 <th>Staff name</th>
+                <th>Position</th>
                 <th>Phone number</th>
 				<th>Email</th>
                 <th>Address</th>
@@ -21,6 +22,7 @@
                     <h5 class="font-16">{{$value->id_NV}}</h5>
                 </td>
                 <td>{{$value->ten_NV}}</td>
+                <td>{{$value->ten_CV}}</td>
                 <td>{{$value->dien_thoai}}</td>
 				<td>{{$value->e_mail}}</td>
 				<td>{{$value->dia_chi}}</td>

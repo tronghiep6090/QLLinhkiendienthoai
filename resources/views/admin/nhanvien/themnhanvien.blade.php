@@ -14,6 +14,17 @@
 									<input class="form-control" name="ten_NV" >
 								</div>
 							</div>
+							<div class="form-group row">
+								<label class="col-sm-12 col-md-2 col-form-label">Position</label>
+								<div class="col-sm-12 col-md-3">
+									<select class="custom-select col-12" name="id_CV">
+										<option selected="">Choose...</option>
+										@foreach($chucvu as $key=>$cate)
+											<option value="{{$cate->id_CV}}">{{$cate->ten_CV}}</option>
+										@endforeach
+									</select>
+								</div>
+							</div>
                             <div class="form-group row">
 								<label class="col-sm-12 col-md-2 col-form-label">Phone number</label>
 								<div class="col-sm-12 col-md-6">
