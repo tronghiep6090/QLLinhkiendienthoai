@@ -58,7 +58,7 @@
 						<div class="login-title">
 							<h2 class="text-center text-primary">Login To DeskApp</h2>
 						</div>
-						
+
 							<div class="select-role">
 								<div class="btn-group btn-group-toggle" data-toggle="buttons">
 									<label class="btn active">
@@ -75,8 +75,8 @@
 									</label>
 								</div>
 							</div>
-							<form class="sign-up-form form"  action="{{URL::to('/loginn')}}" enctype="multipart/form-data" method="post">
-								{{csrf_field()}} 	
+							<form class="sign-up-form form"  action="{{URL::to('/login')}}" enctype="multipart/form-data" method="POST">
+								{{csrf_field()}}
 								<div class="input-group custom">
 									<!-- <input type="text" class="form-control form-control-lg" placeholder="Username" name="username"> -->
 									<input class="form-control form-control-lg" name="username"  id="usrname"  type="text" placeholder="Enter your email" required>
@@ -109,23 +109,23 @@
 												use code for form submit
 												<input class="btn btn-primary btn-lg btn-block" type="submit" value="Sign In">
 											-->
-											
+
 											<button class="btn btn-primary btn-lg btn-block" type="submit">Sign in</button>
-												
+
 											</input>
 										</div>
 										<div class="font-16 weight-600 pt-10 pb-10 text-center" data-color="#707373">OR</div>
 										<div class="input-group mb-0">
 											<a class="btn btn-outline-primary btn-lg btn-block" href="{{URL::to('/register')}}">Register To Create Account</a>
 										</div>
-									</div>		
+									</div>
 								</div>
 							</form>
 					</div>
 				</div>
 			</div>
 		</div>
-		
+
 	</div>
 
 	<!-- js -->

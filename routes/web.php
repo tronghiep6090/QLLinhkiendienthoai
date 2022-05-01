@@ -13,19 +13,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+// Update 2022
+/* Route::get('/', function () {
     return view('/login');
-});
-Route::get('/home','HomeController@home');
+}); */
 
-Route::get('/login','LoginController@login');
+// Update 2022
+Route::get('/','LoginController@loginpage');
+
+Route::get('/home','HomeController@home');
+//Route::post('/home','HomeController@home');
+
+// Update 2022
+Route::post('/login','LoginController@postLogin');
+Route::get('/login','LoginController@getLogin');
+
+// TODO: remove in future
+Route::post('/loginn','LoginController@sb_Login');
+
 Route::get('/register','LoginController@register');
 Route::post('/regis','LoginController@regis');
 
 Route::get('/forgotpassword','LoginController@forgotpassword');
 Route::get('/changepassword','LoginController@changepassword');
-
-Route::post('/loginn','LoginController@sb_Login');
 
 //Quản lý nhân viên
 Route::get('/DS-nhanvien','NhanVienController@staff_list');

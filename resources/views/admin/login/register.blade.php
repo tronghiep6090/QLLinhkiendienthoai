@@ -81,7 +81,7 @@
 												<input type="text" class="form-control" name="user">
 											</div>
 										</div>
-										
+
 										<div class="form-group row">
 											<label class="col-sm-4 col-form-label">Password*</label>
 											<div class="col-sm-8">
@@ -264,10 +264,10 @@
 				</div>
 				 <div class="modal-footer justify-content-center">
 					<a href="{{URL::to('/login')}}" class="btn btn-primary">Done</a>
-				</div> 
+				</div>
 			</div>
 		</div>
-	</div> 
+	</div>
 	<!-- js -->
 	<script src="{{asset('public/frontend/vendors/scripts/core.js')}}"></script>
 	<script src="{{asset('public/frontend/vendors/scripts/script.min.js')}}"></script>

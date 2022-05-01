@@ -6,8 +6,18 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function home()
+    public function home(Request $request)
     {
-        return view('home');
+        $username = $request->session()->get('username');
+        $passwd = $request->session()->get('password');
+
+        if ($username)
+        {
+            return view('home');
+        }
+        else
+        {
+            return Redirect::to('/');
+        }
     }
 }
