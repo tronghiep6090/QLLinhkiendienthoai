@@ -50,7 +50,7 @@
 			</div>
 		</div>
 		<div class="header-right">
-			
+
 			<div class="user-info-dropdown">
 				<div class="dropdown">
 					<a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
@@ -191,7 +191,7 @@
 		<div class="header-right">
 			<div class="dashboard-setting user-notification">
 				<div class="dropdown">
-					<a class="dropdown-toggle no-arrow" href="javascript:;" data-toggle="right-sidebar">
+					<a class="dropdown-toggle no-arrow" href="javascript:void(0)" data-toggle="right-sidebar">
 						<i class="dw dw-settings2"></i>
 					</a>
 				</div>
@@ -267,12 +267,12 @@
                             if($id!=NULL)
                             {
                         ?>
-                    
+
 							<a class="dropdown-item" href="{{URL::to('/logout')}}"><i class="dw dw-logout"></i> Log Out</a>
                          <?php
                             }else{
-                            ?>     
-                           
+                            ?>
+
 							<a class="dropdown-item" href="{{URL::to('/logout')}}"><i class="dw dw-user1"></i>  Log Out</a>
                             <?php
                             }
@@ -281,7 +281,7 @@
 					</div>
 
 
-						
+
 
 				</div>
 			</div>
@@ -462,7 +462,7 @@
 							<li><a href="{{URL::to('/them-nhanvien')}}">Vouchers Add</a></li>
 							<li><a href="{{URL::to('/DS-nhanvien')}}">Vouchers List</a></li>
 							<li><a href="{{URL::to('/DS-nhanviendaxoa')}}">Vouchers Deleted</a></li>
-							
+
 						</ul>
 					</li>
 					<li class="dropdown">
@@ -473,7 +473,7 @@
 							<li><a href="{{URL::to('/them-nhanvien')}}">Personnel Add</a></li>
 							<li><a href="{{URL::to('/DS-nhanvien')}}">Personnel List</a></li>
 							<li><a href="{{URL::to('/DS-nhanviendaxoa')}}">Personnel Deleted</a></li>
-							
+
 						</ul>
 					</li>
 					<li class="dropdown">
@@ -484,7 +484,7 @@
 							<li><a href="{{URL::to('/them-donvitinh')}}">Unit Add</a></li>
 							<li><a href="{{URL::to('/DS-donvitinh')}}">Unit List</a></li>
 							<li><a href="{{URL::to('/DS-donvitinhdaxoa')}}">Unit Deleted</a></li>
-							
+
 						</ul>
 					</li>
 				</ul>
@@ -516,7 +516,7 @@ function myFunction() {
       } else {
         tr[i].style.display = "none";
       }
-    }       
+    }
   }
 }
 </script> -->

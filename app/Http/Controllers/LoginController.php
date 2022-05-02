@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Log;
 use App\Http\Requests;
 use Exception;
 use Illuminate\Support\Facades\Redirect;
+
 session_start();
 
 class LoginController extends Controller
@@ -33,19 +34,15 @@ class LoginController extends Controller
 
         $result = DB::table('users')->where('name', $username)->where('password', $passwd)->first();
 
-        if ($result)
-        {
+        if ($result) {
             $request->session()->put('username', $username);
             $request->session()->put('password', $passwd);
             return Redirect::to('/home');
-        }
-        else
-        {
+        } else {
             // Update: return to loginpage
-            Session::put('message','Tài khoản hoặc mật khẩu không đúng.');
+            Session::put('message', 'Tài khoản hoặc mật khẩu không đúng.');
             return view("login");
         }
-
     }
 
     public function getLogin(Request $request)
@@ -55,6 +52,7 @@ class LoginController extends Controller
 
     public function register()
     {
+        Session::remove('regis');
         return view('admin.login.register');
     }
 
@@ -69,10 +67,10 @@ class LoginController extends Controller
     }
     public function CheckLogin()
     {
-        $id=Session::get('id');
-        if($id){
+        $id = Session::get('id');
+        if ($id) {
             return Redirect::to('welcome');
-        }else{
+        } else {
             return Redirect::to('login')->send();
         }
     }
@@ -85,21 +83,22 @@ class LoginController extends Controller
 
         $result = DB::table('users')->where('name', $uname)->where('password', $upass)->first();
 
-        if($result){
-            Session::put('name',$result->name);
-            Session::put('id',$result->id);
+        if ($result) {
+            Session::put('name', $result->name);
+            Session::put('id', $result->id);
 
             return Redirect::to('/home');
-        } else{
-            Session::put('message','Tài khoản hoặc mật khẩu không đúng.');
+        } else {
+            Session::put('message', 'Tài khoản hoặc mật khẩu không đúng.');
             return Redirect::to('/login');
         }
     }
 
-    public function logout(){
+    public function logout()
+    {
         $this->CheckLogin();
-        Session::put('name',null);
-        Session::put('id',null);
+        Session::put('name', null);
+        Session::put('id', null);
         return Redirect::to('/login');
     }
 
@@ -110,13 +109,13 @@ class LoginController extends Controller
 
         $result = DB::table('users')->where('name', $uname)->where('password', $upass)->first();
 
-        if($result){
+        if ($result) {
             //Session::put('name',$result->customer_fullname);
             //Session::put('id',$result->id);
 
             return Redirect::to('/home');
-        } else{
-            Session::put('message','Tài khoản hoặc mật khẩu không đúng.');
+        } else {
+            Session::put('message', 'Tài khoản hoặc mật khẩu không đúng.');
             return Redirect::to('/login');
         }
     }
@@ -124,20 +123,16 @@ class LoginController extends Controller
     public function regis(Request $request)
     {
         $data = array();
-        $data['name']= $request->user;
-        $data['email']= $request->email;
-        $data['password']= $request->password;
-        $data['remember_token']= $request->confirmpassword;
+        $data['name'] = $request->user;
+        $data['email'] = $request->email;
+        $data['password'] = $request->password;
+        $data['remember_token'] = $request->confirmpassword;
         try {
-             $NO = DB::table('users')->insert($data);
-             Session::put('message','Đăng Ký Thành công !');
-        return view('admin.login.register');
-          } catch (Exception $e) {
+            $NO = DB::table('users')->insert($data);
+            Session::put('regis', 'show');
             return view('admin.login.register');
-            }
-
-
-        //return redirect::to('/admin.login.register');
-        //view('admin.login.forgotpassword');
+        } catch (Exception $e) {
+            return view('admin.login.register');
+        }
     }
 }
